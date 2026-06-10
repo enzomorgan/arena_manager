@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Arquivos de ambiente / segredos
+.env
+.env.*
+!.env.example
+
+# Uploads e arquivos de mídia
+media/
+staticfiles/
+
+# Migrations cache
+**/migrations/__pycache__/
+
+# Testes e coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.cache/
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Node / Frontend futuro
+node_modules/
+.next/
+dist/
+build/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker local
+docker-compose.override.yml
+
+# Banco local / backups
+*.sqlite3
+*.bak
+*.backup
+
+# Arquivos sensíveis
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
