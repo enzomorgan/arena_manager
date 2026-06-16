@@ -7,7 +7,7 @@ from apps.championships.classification_service import (recalculate_standings)
 class RecalculateStandingsView(APIView):
     permission_classes = [IsAuthenticated]
     
-    def post(self, resquest, championship_id):
+    def post(self, request, championship_id):
         championship = Championship.objects.get(
             pk=championship_id
         )

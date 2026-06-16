@@ -8,7 +8,7 @@ from .stats_views import TopScorersView
 
 router = DefaultRouter()
 router.register(r"championships", ChampionshipViewSet, basename="championships")
-router.register(r"standings", StandingViewSet, basename="standins")
+router.register(r"standings", StandingViewSet, basename="standings")
 
 urlpatterns = router.urls + [
     path(

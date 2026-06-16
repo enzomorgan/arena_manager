@@ -31,7 +31,7 @@ class ChampionshipViewSet(viewsets.ModelViewSet):
         serializer = StandingSerializer(standings, many=True)
         return Response(serializer.data)
     
-    @action(detail=True, methods=["post"], url_path="recalcute-standins")
+    @action(detail=True, methods=["post"], url_path="recalcute-standings")
     def recalculate(self, request, pk=None):
         championship = self.get_object()
         standings = recalculate_standings(championship.id)

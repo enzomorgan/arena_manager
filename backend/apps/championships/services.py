@@ -82,7 +82,7 @@ def generate_round_robin(championship):
         teams.append(None)
         
     rounds = len(teams) - 1
-    halg = len(teams) // 2
+    half = len(teams) // 2
     
     for round_number in range(rounds):
         

@@ -34,7 +34,7 @@ def recalculate_standings(championship):
         home.goals_against += match.away_score
         
         away.goals_for += match.away_score
-        away.gols_against += match.home_score
+        away.goals_against += match.home_score
         
         if match.home_score > match.away_score:
             
