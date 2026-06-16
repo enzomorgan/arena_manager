@@ -70,6 +70,8 @@ class MatchEvent(models.Model):
     team = models.ForeignKey(
         "teams.Team",
         on_delete=models.CASCADE,
+        blank=True,
+        null=True,
     )
     
     event_type = models.CharField(

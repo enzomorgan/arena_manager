@@ -9,7 +9,10 @@ def update_match_score(sender, instace, created, **kwargs):
     if not created:
         return
     
-    if instace.event_type != "GOAL":
+    if instace.event_type != MatchEvent.EventType.GOAL:
+        return
+    
+    if not instace.team:
         return
     
     match = instace.match

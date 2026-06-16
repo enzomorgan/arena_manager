@@ -79,7 +79,7 @@ class Standing(models.Model):
         
     @property
     def goal_difference(self):
-        return self.gols_for - self.gols_against
+        return self.goals_for - self.goals_against
     
     def __str__(self):
         return f"{self.team} - {self.points} pts"
