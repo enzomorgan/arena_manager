@@ -4,20 +4,20 @@ from .models import MatchEvent, Match
 from apps.championships.services import recalculate_standings
 
 @receiver(post_save, sender=MatchEvent)
-def update_match_score(sender, instace, created, **kwargs):
+def update_match_score(sender, instance, created, **kwargs):
     
     if not created:
         return
     
-    if instace.event_type != MatchEvent.EventType.GOAL:
+    if instance.event_type != MatchEvent.EventType.GOAL:
         return
     
-    if not instace.team:
+    if not instance.team:
         return
     
-    match = instace.match
+    match = instance.match
     
-    if instace.team == match.home_team:
+    if instance.team == match.home_team:
         match.home_score += 1
     else:
         match.away_score += 1

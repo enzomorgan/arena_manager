@@ -1,6 +1,8 @@
 from apps.championships.models import Championship, Standing
 from apps.matches.models import Match
 from apps.matches.models import Match
+from datetime import timedelta
+from django.utils import timezone
 
 def recalculate_standings(championship_id):
     championship = Championship.objects.get(id=championship_id)
@@ -32,7 +34,7 @@ def recalculate_standings(championship_id):
         home_standing.played += 1
         away_standing.played += 1
         
-        home_standing.gols_for += match.home_score
+        home_standing.goals_for += match.home_score
         home_standing.goals_against += match.away_score
 
         away_standing.goals_for += match.away_score
@@ -100,6 +102,7 @@ def generate_round_robin(championship):
                 home_team=home,
                 away_team=away,
                 round_number=round_number + 1,
+                date=timezone.now() + timedelta(days=round_number),
             )
             
         teams = (

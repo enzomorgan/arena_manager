@@ -14,14 +14,17 @@ class ChampionshipDashboardView(APIView):
             pk=championship_id
         )
         
-        standings = Standing.objects.filter(
-            championship=championship
-        ).order_by(
-            "-points",
-            "-goal_difference",
+        standings = sorted(
+            Standing.objects.filter(championship=championship),
+            key=lambda standing: (
+                standing.points,
+                standing.goal_difference,
+                standing.goals_for,
+            ),
+            reverse=True,
         )
         
-        leader = standings.first()
+        leader = standings[0] if standings else None
         
         matches_played = Match.objects.filter(
             championship=championship,
