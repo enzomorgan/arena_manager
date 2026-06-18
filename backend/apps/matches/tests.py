@@ -64,8 +64,8 @@ class MatchFlowTests(TestCase):
     def test_create_goal_event_updates_home_score(self):
         MatchEvent.objects.create(
             match=self.match,
-            player=self.player_b,
-            team=self.team_b,
+            player=self.player_a,
+            team=self.team_a,
             event_type=MatchEvent.EventType.GOAL,
             minute=20,
         )
@@ -104,6 +104,13 @@ class MatchFlowTests(TestCase):
         self.assertEqual(self.match.away_score, 0)
         
     def test_multiple_goal_events_update_score(self):
+        MatchEvent.objects.create(
+            match=self.match,
+            player=self.player_a,
+            team=self.team_a,
+            event_type=MatchEvent.EventType.GOAL,
+            minute=20,
+        )
         MatchEvent.objects.create(
             match=self.match,
             player=self.player_a,
