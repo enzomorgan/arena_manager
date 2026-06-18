@@ -17,13 +17,13 @@ def update_match_score(sender, instance, created, **kwargs):
     
     match = instance.match
     
-    if instance.team == match.home_team:
-        match.home_score += 1
-    else:
-        match.away_score += 1
+    if instance.team_id == instance.match.home_team:
+        instance.match.home_score += 1
+    elif instance.team_id == instance.match.away_team:
+        instance.match.away_score += 1
+
+    match.save(update_fields=["home_score", "away_score"])   
         
-    match.save()
-    
 @receiver
 def update_standings_when_match_finished(sender, instance, **kwargs):
     if instance.status == Match.Status.FINISHED:
