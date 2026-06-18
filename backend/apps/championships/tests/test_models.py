@@ -30,13 +30,13 @@ class ChampionshipModelTests(TestCase):
         championship.teams.add(self.team)
         
         self.assertEqual(str(championship), "Campeonato Teste - 2026")
-        self.assertEqual(championship.team.count(), 1)
-        self.assertEqual(championship.is_active)
+        self.assertEqual(championship.teams.count(), 1)
+        self.assertTrue(championship.is_active)
         
     def test_create_standing(self):
         championship = Championship.objects.create(
             name="Campeonato Teste",
-            season="20260",
+            season="2026",
             city="Pau dos Ferros",
             modality=Championship.Modality.FOOTBALL,
             format=Championship.Format.LEAGUE,
@@ -58,6 +58,7 @@ class ChampionshipModelTests(TestCase):
             name="Campeonato Teste",
             season="2026",
             city="Pau dos Ferros",
+            modality=Championship.Modality.FOOTBALL,
             format=Championship.Format.LEAGUE,
         )
         
