@@ -18,7 +18,7 @@ class TeamAPIViewTests(APITestCase):
         
     def test_create_team(self):
         response = self.client.post(
-            "/api/teams",
+            "/api/teams/",
             {
                 "name": "Arena FC",
                 "city": "Pau dos Ferros",
